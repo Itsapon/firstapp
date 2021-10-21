@@ -16,9 +16,13 @@ function App() {
         <div>
           <Navbar />
           <Switch>
-            <Route path="/discover" component={DiscoverMoviesPage} />
-            <Route path="/about" component={Aboutpage} />
-            <Route path="/" component={Homepage} />
+            <Route
+              exact={true}
+              path="/discover"
+              component={DiscoverMoviesPage}
+            />
+            <Route exact={true} path="/about" component={Aboutpage} />
+            <Route exact={true} path="/" component={Homepage} />
           </Switch>
         </div>
       </div>

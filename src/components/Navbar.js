@@ -8,13 +8,24 @@ export default function Navbar() {
     <div>
       <h3>Menu:</h3>
       <ul>
-        <Link to="/" exact>
+        <NavLink
+          to="/"
+          activeStyle={{ fontWeight: "bold", color: "red" }}
+          exact
+        >
           Home
-        </Link>
+        </NavLink>
         {" - "}
-        <Link to="/about">About</Link>
+        <NavLink to="/about" activeStyle={{ fontWeight: "bold", color: "red" }}>
+          About
+        </NavLink>
         {" - "}
-        <Link to="/discover">Discover</Link>
+        <NavLink
+          to="/discover"
+          activeStyle={{ fontWeight: "bold", color: "red" }}
+        >
+          Discover
+        </NavLink>
       </ul>
     </div>
   );
