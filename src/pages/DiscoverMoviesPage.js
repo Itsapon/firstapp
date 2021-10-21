@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 //misc
 const API_KEY = "756cb58a";
@@ -15,9 +16,9 @@ const API_KEY = "756cb58a";
 
 //component function
 export default function DiscoverMoviesPage() {
-  const searchText = "star";
+  const searchText = "Marvel";
   const [movies, setMovies] = useState([]);
-  console.log("this is movies", movies);
+  // console.log("this is movies", movies);
 
   const fetchData = async () => {
     // console.log(searchText);
@@ -25,6 +26,7 @@ export default function DiscoverMoviesPage() {
       `http://www.omdbapi.com/?s=${searchText}&apikey=${API_KEY}`
     );
     console.log(response.data.Search);
+    setMovies(response.data.Search);
   };
 
   useEffect(() => {
@@ -33,7 +35,22 @@ export default function DiscoverMoviesPage() {
 
   return (
     <div>
-      <p>Get ready to discover</p>
+      <h2>Get ready to discover:</h2>
+      <div>
+        {!movies
+          ? "loading..."
+          : movies.map((q) => {
+              return (
+                <div key={q.imdbID}>
+                  <Link to={`/movie/&{q.imdbID`}>
+                    <h3>{q.Title}</h3>
+                  </Link>{" "}
+                  <h3>{q.Year}</h3>
+                  <img src={q.Poster} alt="Poster" />
+                </div>
+              );
+            })}
+      </div>
     </div>
   );
 }

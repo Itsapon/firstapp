@@ -5,6 +5,7 @@ import Homepage from "./pages/Homepage";
 import DiscoverMoviesPage from "./pages/DiscoverMoviesPage";
 import Aboutpage from "./pages/Aboutpage";
 import Navbar from "./components/Navbar";
+import Detailpage from "./pages/Detailpage";
 
 //body
 
@@ -23,6 +24,7 @@ function App() {
             />
             <Route exact={true} path="/about" component={Aboutpage} />
             <Route exact={true} path="/" component={Homepage} />
+            <Route exact={true} path="/movie/:id" component={Detailpage} />
           </Switch>
         </div>
       </div>
