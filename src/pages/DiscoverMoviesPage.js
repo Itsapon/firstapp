@@ -1,7 +1,6 @@
 //imports
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 //misc
@@ -42,7 +41,7 @@ export default function DiscoverMoviesPage() {
           : movies.map((q) => {
               return (
                 <div key={q.imdbID}>
-                  <Link to={`/movie/&{q.imdbID`}>
+                  <Link to={`/movie/${q.imdbID}`}>
                     <h3>{q.Title}</h3>
                   </Link>{" "}
                   <h3>{q.Year}</h3>
